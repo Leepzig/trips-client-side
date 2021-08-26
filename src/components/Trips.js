@@ -1,15 +1,14 @@
 import React from 'react'
 import TripCard from './TripCard'
 
-const Trips = ( ) => {
+const Trips = ( {trips} ) => {
 
 
 
-  trips = ["Spain", "Portugal", "Colombia", "France", "Houston", "Florida"]
   return (
     <div className="cards">
       <ul>
-      {trips.map(trip => { <Trip trip={trip} />})}
+      {trips.map(trip =>  <TripCard key={trip.id} trip={trip} />)}
       </ul>
     </div>
   )
