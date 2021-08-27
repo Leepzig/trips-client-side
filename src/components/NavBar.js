@@ -1,15 +1,14 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
 
-const NavBar = () => {
+const NavBar = ( {currentUser, logout}) => {
   return (
     <div>
       
       <nav>
       <NavLink to="/">Home</NavLink>
-      <NavLink to="/login">Login</NavLink>
-      <NavLink to="/">Sign up</NavLink>
-      <NavLink to="/">My Trips</NavLink>
+      {currentUser ? <NavLink to={`/users/${currentUser.id}/trips`}>My Trips</NavLink> : <NavLink to="/">Sign up</NavLink>}
+      {currentUser?  <NavLink to="/" onClick={logout}>Logout</NavLink>: <NavLink to="/login">Login</NavLink> }
       </nav>
     </div>
   )
