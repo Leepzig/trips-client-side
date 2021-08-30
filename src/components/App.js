@@ -46,7 +46,7 @@ function App() {
             <NewTrip currentUser={currentUser}/>
           </Route>
           <Route exact path="/users/:id/trips">
-            <Trips />
+            <Trips logout={logout} currentUser={currentUser}/>
           </Route>
           <Route exact path="/trips/:id">
             <TripDetails currentUser={currentUser}/>

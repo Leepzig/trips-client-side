@@ -23,7 +23,10 @@ const TripDetails = ( {currentUser}) => {
     }
     fetch(`http://localhost:9393/trips/${id}`, options)
     .then(resp => resp.json())
-    .then(data => data)
+    .then(data => {
+      console.log(data)
+      history.push(`/users/${currentUser.id}/trips`)
+    })
   }
 
   if (!trip) return <h2>Loading...</h2>
