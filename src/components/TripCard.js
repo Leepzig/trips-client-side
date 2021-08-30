@@ -1,16 +1,16 @@
 import React from 'react'
 import { Link } from "react-router-dom"
 
-const TripCard = ( {trip}) => {
+const TripCard = ( { trip } ) => {
 
 
 
   return (
     <li>
-      <div className="card">
-        <div><Link to="/">{trip.title}</Link></div>
+      <div>
+        <div><Link to={`/trips/${trip.id}`}>{trip.title}</Link></div>
         <div>{trip.location}</div>
-        <div>{trip.trip_length}</div>
+        <div>{trip.trip_length} days</div>
       </div>
     </li>
   )
