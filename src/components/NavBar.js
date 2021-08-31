@@ -1,9 +1,10 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
 
+
 const NavBar = ( {currentUser, logout}) => {
   return (
-    <div>
+    <div className="nav-bar">
       
       <nav>
       <NavLink to="/">Home</NavLink> | 

@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 
 const Login = ( { changeUser }) => {
   const [userLogin, setUserLogin] = useState("")
+  const [error, setError] = useState(null)
 
   let history = useHistory()
   
@@ -14,23 +15,26 @@ const Login = ( { changeUser }) => {
   }
 
     //Current USer Functions
-    function findCurrentUser(username) {
-      fetch(`http://localhost:9393/users/${username}`)
-      .then(response => response.json())
-      .then( user => {
+    async function findCurrentUser(username) {
+      const response = await fetch(`http://localhost:9393/users/${username}`)
+      if (response.status === 401) {
+        setError("That user doesn't exist, try again or sign up for an account!")
+      } else {
+        const user = await response.json()
         changeUser(user)
         history.push(`/users/${user.id}/trips`)
-      })
+      }
     }
     
     //TODO setup what happens if user login is incorrect
     //FIX IN BACKEND
 
-
+const word = "hello"
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
+        <h3 style={{color:"red"}}>{error}</h3>
         <label htmlFor="login" value="Username">Username:</label><br/>
         <input type="text" name="login" value={userLogin} onChange={(e) => setUserLogin(e.target.value)} autoFocus={true}/>
         <input type="submit" value="Login"/>

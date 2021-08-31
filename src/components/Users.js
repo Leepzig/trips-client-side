@@ -12,6 +12,7 @@ const Users = ( ) => {
 
   return (
     <div>
+      <h3>TripLand Users:</h3>
       <ul>
 
         {users.map( user => <li key={user.id}><Link to={`/users/${user.id}/trips`}>{user.username}</Link></li>)}
