@@ -24,7 +24,7 @@ const Trips = ( { logout, currentUser } ) => {
     .then(resp => resp.json())
     .then(data => {
       console.log(data)
-      history.push(`/`)
+      history.push(`/home`)
       logout()
     })
   }

@@ -1,8 +1,49 @@
 
-
-.nav-bar {
-  border: solid hsl(36deg 100% 41%);
-  background: hsl(36deg 100% 68%);
-  padding: 10px;
+body {
+  background: #ffe3c1;
+}
+.navbar {
+  display: block;
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background: #ffa12e;
+  text-align: left;
 }
 
+.navbar li {
+  display: inline-block;
+  background-color: #ffa12e;
+}
+
+.navbar a {
+  display: block;
+  padding: 14px 16px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
+.navbar a.active {
+  display: block;
+  padding: 14px 16px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  background-color: #f88800;
+}
+
+a {
+  text-decoration: none;
+  color:black;
+}
+
+li :hover {
+  background-color: #f88800;
+}
+/* 
+.clickable {
+  background-color: #f88800;
+
+} */

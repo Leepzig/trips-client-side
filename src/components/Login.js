@@ -29,7 +29,6 @@ const Login = ( { changeUser }) => {
     //TODO setup what happens if user login is incorrect
     //FIX IN BACKEND
 
-const word = "hello"
 
   return (
     <div>

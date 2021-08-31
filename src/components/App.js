@@ -33,7 +33,7 @@ function App() {
         <NavBar currentUser={currentUser} logout={logout}/>
         <Switch>
 
-          <Route exact path="/">
+          <Route exact path="/home">
             <Welcome/>
             <Users />
           </Route>
