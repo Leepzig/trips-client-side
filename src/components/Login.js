@@ -25,10 +25,6 @@ const Login = ( { changeUser }) => {
         history.push(`/users/${user.id}/trips`)
       }
     }
-    
-    //TODO setup what happens if user login is incorrect
-    //FIX IN BACKEND
-
 
   return (
     <div>
