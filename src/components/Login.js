@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { useHistory } from 'react-router-dom'
+import { baseUrl } from './globals'
 
 
 const Login = ( { changeUser }) => {
@@ -16,7 +17,7 @@ const Login = ( { changeUser }) => {
 
     //Current USer Functions
     async function findCurrentUser(username) {
-      const response = await fetch(`http://localhost:9393/users/${username}`)
+      const response = await fetch(`${baseUrl}/users/${username}`)
       if (response.status === 401) {
         setError("That user doesn't exist, try again or sign up for an account!")
       } else {

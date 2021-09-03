@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory, useParams } from "react-router-dom"
+import { baseUrl } from './globals'
 
 const NewTrip = ( { currentUser } ) => {
   //form State
@@ -17,7 +18,7 @@ const NewTrip = ( { currentUser } ) => {
   
     useEffect( () => {
       if (id) {
-        fetch(`http://localhost:9393/trips/${id}`)
+        fetch(`${baseUrl}/trips/${id}`)
         .then(resp => resp.json())
         .then(data => setForm(data))
       }
@@ -39,8 +40,8 @@ const NewTrip = ( { currentUser } ) => {
       headers: {"Content-Type" : "application/json"},
       body:JSON.stringify(form)
     }
-    const baseUrl = "http://localhost:9393/trips"
-    const URL = id ? baseUrl + `/${id}`: baseUrl
+    const rootUrl = `${baseUrl}/trips`
+    const URL = id ? rootUrl + `/${id}`: rootUrl
     fetch(URL, options)
       .then(resp => resp.json())
       .then(data => {

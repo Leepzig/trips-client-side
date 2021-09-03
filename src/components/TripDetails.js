@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useHistory } from "react-router-dom"
+import { baseUrl } from './globals'
 
 const TripDetails = ( {currentUser}) => {
   const [trip, setTrip] = useState()
@@ -7,7 +8,7 @@ const TripDetails = ( {currentUser}) => {
   const history = useHistory()
 
   useEffect(() =>{
-    fetch(`http://localhost:9393/trips/${id}`)
+    fetch(`${baseUrl}/trips/${id}`)
     .then(resp => resp.json())
     .then(data => setTrip(data))
   },[id])
@@ -21,7 +22,7 @@ const TripDetails = ( {currentUser}) => {
       method:"DELETE",
       headers:{"Content-Type":"application/json"}
     }
-    fetch(`http://localhost:9393/trips/${id}`, options)
+    fetch(`${baseUrl}/trips/${id}`, options)
     .then(resp => resp.json())
     .then(data => {
       console.log(data)

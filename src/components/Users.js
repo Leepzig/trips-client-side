@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom"
+import { baseUrl } from './globals'
 
 const Users = ( ) => {
   const [users, setUsers] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:9393/users")
+    fetch(`${baseUrl}/users`)
     .then(response => response.json())
     .then(data => setUsers(data))
   }, [])

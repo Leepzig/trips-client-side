@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
+import { baseUrl } from './globals'
 
 const NewUser = ( { changeUser }) => {
   const [form, setForm] = useState({
@@ -16,7 +17,7 @@ const NewUser = ( { changeUser }) => {
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify(form)
     }
-    fetch("http://localhost:9393/users", options)
+    fetch(`${baseUrl}/users`, options)
     .then(resp => resp.json())
     .then(data => findCurrentUser(data.username))
   }
@@ -30,7 +31,7 @@ const NewUser = ( { changeUser }) => {
 
   //will this be able to find the current user after just creating it?
   function findCurrentUser(username) {
-    fetch(`http://localhost:9393/users/${username}`)
+    fetch(`${baseUrl}/users/${username}`)
     .then(response => response.json())
     .then( user => {
       changeUser(user)

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useHistory } from "react-router-dom"
+import { baseUrl } from './globals'
 import TripCard from './TripCard'
 
 const Trips = ( { logout, currentUser } ) => {
@@ -9,8 +10,9 @@ const Trips = ( { logout, currentUser } ) => {
   const { id } = useParams()
   const history = useHistory()
 
+  //TODO WHY SOMETIMES THE EDIT DISPLAYS other times no
   useEffect(() => {
-    fetch(`http://localhost:9393/users/${id}/trips`)
+    fetch(`${baseUrl}/users/${id}/trips`)
     .then(response => response.json())
     .then(data => setTrips(data.trips))
   },[id])
@@ -20,7 +22,7 @@ const Trips = ( { logout, currentUser } ) => {
       method:"DELETE",
       headers:{"Content-Type":"application/json"}
     }
-    fetch(`http://localhost:9393/users/${id}`, options)
+    fetch(`${baseUrl}/users/${id}`, options)
     .then(resp => resp.json())
     .then(data => {
       console.log(data)
