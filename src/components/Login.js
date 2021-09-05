@@ -12,10 +12,11 @@ const Login = ( { changeUser }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     findCurrentUser(userLogin)
-    // history.push("/")
+  }
+  const handleChange = e => {
+    setUserLogin(e.target.value)
   }
 
-    //Current USer Functions
     async function findCurrentUser(username) {
       const response = await fetch(`${baseUrl}/users/${username}`)
       if (response.status === 401) {
@@ -32,7 +33,7 @@ const Login = ( { changeUser }) => {
       <form onSubmit={handleSubmit}>
         <h3 style={{color:"red"}}>{error}</h3>
         <label htmlFor="login" value="Username">Username:</label><br/>
-        <input type="text" name="login" value={userLogin} onChange={(e) => setUserLogin(e.target.value)} autoFocus={true}/>
+        <input type="text" name="login" value={userLogin} onChange={handleChange} autoFocus={true}/>
         <input type="submit" value="Login"/>
       </form>
     </div>

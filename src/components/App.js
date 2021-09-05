@@ -18,11 +18,10 @@ import PageNotFound from "./PageNotFound";
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
   
-
   const changeUser = (user) => {
     setCurrentUser(user)
   }
-
+  
   const logout = () => {
     setCurrentUser(null)
   }
